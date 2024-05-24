@@ -1,0 +1,17 @@
+﻿---
+BasedOnStyle: LLVM
+AccessModifierOffset: '-4'
+AlignEscapedNewlines: Left
+AllowShortCaseLabelsOnASingleLine: 'true'
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortLambdasOnASingleLine: Empty
+BreakConstructorInitializers: BeforeComma
+ColumnLimit: '120'
+IndentPPDirectives: AfterHash
+IndentWidth: '4'
+Language: Cpp
+PointerAlignment: Left
+UseTab: Never
+
+...
+
