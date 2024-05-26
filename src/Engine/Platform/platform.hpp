@@ -1,5 +1,14 @@
 #pragma once
 
+// Platform Validation Layer
+// This header file checks the compilation environment to ensure the software builds only on supported platforms.
+// It defines macros based on the detected environment:
+// - PVK_PLATFORM_WINDOWS for Windows 64-bit.
+// - PVK_PLATFORM_LINUX for Linux x86_64.
+// The code blocks 32-bit Windows, all ARM architectures, and Mac/iOS platforms, displaying an error if attempted.
+// An error is also raised if the platform is neither Windows 64-bit nor Linux x86_64, ensuring correct
+// platform-specific compilation.
+
 // Check for Windows 64-bit
 #if defined(_WIN32) || defined(_WIN64)
 #    if defined(_WIN64)
@@ -31,19 +40,4 @@
 // Check for unsupported platforms
 #if !defined(PVK_PLATFORM_WINDOWS) && !defined(PVK_PLATFORM_LINUX)
 #    error "Unsupported platform. Only Windows 64-bit and Linux x86_64 are supported."
-#endif
-
-// Define DLL EXPORT and IMPORT
-#ifdef PVK_EXPORT
-#    if defined(_MSC_VER)
-#        define PKV_API __declspec(dllexport)
-#    else
-#        define PKV_API __attribute__((visibility("default")))
-#    endif
-#else
-#    if defined(_MSC_VER)
-#        define PKV_API __declspec(dllimport)
-#    else
-#        define PKV_API
-#    endif
 #endif

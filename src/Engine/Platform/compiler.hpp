@@ -52,8 +52,8 @@
 
 #endif
 
-// C++ 17
-#if __cplusplus >= 201703L
+// C++ 20
+#if __cplusplus >= 202002L && __STDC_VERSION__ >= 201710L
 #else
-#    error "Please compile with c++17 or higher"
+#    error "Please compile with c++20 and c17 or higher"
 #endif
