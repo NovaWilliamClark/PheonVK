@@ -53,6 +53,6 @@
 #endif
 
 // C++ 20
-#if __cplusplus <= 202002L
+#if __cplusplus < 202002L
 #    error "Please compile with c++20"
 #endif
