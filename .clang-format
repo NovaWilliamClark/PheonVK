@@ -10,6 +10,7 @@ ColumnLimit: '120'
 IndentPPDirectives: AfterHash
 IndentWidth: '4'
 Language: Cpp
+Standard: c++20
 PointerAlignment: Left
 UseTab: Never
 
