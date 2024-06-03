@@ -2,12 +2,13 @@
 
 #if defined(__clang__)
 
-#    if PVKEXPORT
+#    if PVK_EXPORT
 #        define PVK_API __attribute__((__visibility__("default")))
-#    else
+#    elif PVK_IMPORT
 #        define PVK_API
 #    endif
 
+#    define CPP_STANDARD __cplusplus
 #    define INLINE inline
 #    define FORCE_INLINE inline
 #    define FORCE_NOINLINE __attribute__((noinline))
@@ -16,12 +17,13 @@
 
 #elif defined(__GNUC__)
 
-#    if PVKEXPORT
+#    if PVK_EXPORT
 #        define PVK_API __attribute__((__visibility__("default")))
-#    else
+#    elif PVK_IMPORT
 #        define PVK_API
 #    endif
 
+#    define CPP_STANDARD __cplusplus
 #    define INLINE inline
 #    define FORCE_INLINE inline
 #    define FORCE_NOINLINE __attribute__((noinline))
@@ -34,12 +36,13 @@
 #        error "Required Visual Studio 2019 (16.0) or newer."
 #    endif
 
-#    if PVKEXPORT
+#    if PVK_EXPORT
 #        define PVK_API __declspec(dllexport)
-#    else
+#    elif PVK_IMPORT
 #        define PVK_API __declspec(dllimport)
 #    endif
 
+#    define CPP_STANDARD _MSVC_LANG
 #    define INLINE __inline
 #    define FORCE_INLINE __forceinline
 #    define FORCE_NOINLINE __declspec(noinline)
@@ -53,6 +56,6 @@
 #endif
 
 // C++ 20
-#if __cplusplus < 202002L
+#if CPP_STANDARD < 202002L
 #    error "Please compile with c++20"
 #endif
